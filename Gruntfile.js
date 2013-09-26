@@ -5,6 +5,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-livescript');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-express');
@@ -12,7 +13,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-wintersmith');
 
   grunt.registerTask('default', ['preview']);
-  grunt.registerTask('build', ['clean', 'wintersmith', 'copy', 'concat', 'less']);
+  grunt.registerTask('build', ['clean', 'wintersmith', 'less', 'livescript', 'copy', 'concat']);
   grunt.registerTask('preview', ['build', 'express', 'watch']);
   grunt.registerTask('deploy', ['build', 'cssmin', 'uglify']); // , 'gh-pages']);
 
@@ -75,6 +76,13 @@ module.exports = function (grunt) {
       }
     },
 
+    livescript: {
+      build: {
+        src: 'contents/js/*.ls',
+        dest: 'contents/js/main.js'
+      }
+    },
+
     express: {
       server: {
         options: {
@@ -88,10 +96,12 @@ module.exports = function (grunt) {
     watch: {
       build: {
         files: [
+          'Gruntfile.js',
           'contents/css/*.less',
           'contents/**/*.md',
           'templates/**/*.jade',
           'contents/img/**',
+          'contents/js/*.ls',
           jsFiles
         ],
         tasks: ['build']
