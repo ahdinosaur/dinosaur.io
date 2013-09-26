@@ -1,0 +1,3 @@
+mixin gravatar(email)
+  - var gravatarUrl = grvtr.create(email, { size: 180, defaultImage: 'identicon' });
+  img.profilePic(src=gravatarUrl)

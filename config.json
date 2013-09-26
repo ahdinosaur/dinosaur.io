@@ -1,0 +1,30 @@
+{
+  "locals": {
+    "url": "http://localhost:8088",
+    "name": "free and open source love",
+    "owner": "dinosaur",
+    "description": "TODO: description",
+    "email": "dinosaur@riseup.net"
+  },
+  "plugins": [
+    "./plugins/paginator.coffee"
+  ],
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr",
+    "grvtr": "grvtr",
+    "munge": "munge",
+    "rndstr": "randomstring"
+  },
+  "jade": {
+    "pretty": true
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  },
+  "paginator": {
+    "perPage": 5
+  }
+}

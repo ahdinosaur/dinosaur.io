@@ -1,0 +1,23 @@
+
+extends layout
+
+block append vars
+  - bodyclass = 'article-detail'
+
+block prepend title
+  | #{ page.title + " - "}
+
+block header
+  h1= page.title
+  include author
+  mixin author(page.metadata.author)
+
+block content
+  article.article
+    section.content!= typogr(page.html).typogrify()
+
+block pager
+  ul.pager
+    li
+      a(href=contents.index.url) &larr; index
+

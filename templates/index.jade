@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  include author
+  each article in articles
+    article.article
+      header.page-header
+        p.date.pull-right
+          = moment.utc(article.date).format('DD. MMMM YYYY ')
+          span.icon-calendar
+        h2
+          a(href=article.url)= article.title
+      section.lead
+        !{ typogr(article.intro).typogrify() }
+        if article.hasMore
+          p.more
+            a(href=article.url) more
+
+block pager
+  ul.pager
+    if prevPage
+      li.previous: a(href=prevPage.url)!= '<span></span> previous'
+    else
+      li.previous.disabled: a(href='#')!= '<span></span> previous'
+    if nextPage
+      li.next: a(href=nextPage.url)!= 'next <span></span>'
+    else
+      li.next.disabled: a(href='#')!= 'next <span></span>'

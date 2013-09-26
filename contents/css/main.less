@@ -1,0 +1,72 @@
+@import "bootstrap.less";
+
+@import "font-awesome.less";
+
+@FontAwesomePath: "../fonts";
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Open Sans", "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+  height: 100%;
+}
+
+
+.fix-side {
+  position: fixed;
+}
+.rel-side {
+  position: relative;
+}
+
+#sidebar {
+  .fix-side;
+  left: 0;
+  .text-center;
+
+  @media (max-width: @screen-xs-max) {
+    .rel-side;
+  }
+  @media (min-width: @screen-xs-max) and (max-width: @screen-sm-max) {
+  }
+  @media (min-width: @screen-sm-max) and (max-width: @screen-md-max) {
+  }
+  @media (min-width: @screen-md-max) {
+  }
+}
+
+
+footer > p {
+  .text-center;
+  .text-muted;
+}
+
+.pager .previous span {
+  .glyphicon;
+  .glyphicon-chevron-left;
+}
+.pager .next span {
+  .glyphicon;
+  .glyphicon-chevron-right;
+}
+
+.profilePic {
+  border-radius: 33.3%;
+}
+
+article header .date {
+  line-height: 4em;
+}
+
+.handles ul li {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+
+  span {
+    font-size: 32px;
+  }
+}

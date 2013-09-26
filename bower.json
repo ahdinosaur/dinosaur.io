@@ -1,0 +1,21 @@
+{
+  "name": "dinosaur.io",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~3.2.1"
+  },
+  "homepage": "https://github.com/ahdinosaur/dinosaur.io",
+  "license": "MIT",
+  "devDependencies": {
+    "html5shiv": "~3.7.0",
+    "jquery": "~2.0.3",
+    "bootstrap": "~3.0.0"
+  }
+}

@@ -1,0 +1,9 @@
+*.swp
+
+node_modules
+bower_components
+
+/build
+
+/contents/js/*.js
+/contents/css/*.css
