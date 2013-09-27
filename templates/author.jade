@@ -3,28 +3,27 @@ mixin author(authorName)
   include gravatar
   - var author = contents.authors[authorName + '.json']
   if author
-    p.author.lead
-      if author.metadata.url
-        a(href=author.metadata.url)
-          | #{ "@" + authorName }
-      else
-        | #{ "@" + authorName }
+    .author
+      h2
+        if author.metadata.url
+          a(href=author.metadata.url)
+            | #{ "@" + authorName }
     if author.metadata.email
-      mixin gravatar(author.metadata.email)
-    .handles
-      ul.nav.nav-pills.row
-        if author.metadata.email
+        mixin gravatar(author.metadata.email)
+      .handles
+        ul.nav.nav-pills.row
+          if author.metadata.email
+            li.col-xs-3
+              mixin email(author.metadata.email)
+          if author.metadata.github
+            li.col-xs-3
+              mixin github(author.metadata.github)
+          if author.metadata.twitter
+            li.col-xs-3
+              mixin twitter(author.metadata.twitter)
           li.col-xs-3
-            mixin email(author.metadata.email)
-        if author.metadata.github
-          li.col-xs-3
-            mixin github(author.metadata.github)
-        if author.metadata.twitter
-          li.col-xs-3
-            mixin twitter(author.metadata.twitter)
-        li.col-xs-3
-          a(href="/feed.xml")
-            span.icon-rss
+            a(href="/feed.xml")
+              span.icon-rss
   else
     p.lead.author
       | #{ "@" + authorName }

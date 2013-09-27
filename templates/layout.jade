@@ -19,19 +19,16 @@ html(lang='en')
   body(class=bodyclass)
     div.container
       div.row
-        #sidebar.col-xs-12.col-sm-3(role='navigation')
+        #sidebar(role='navigation')
           header
             block header
               h1
                 a(href=locals.url)= locals.name
               include author
               mixin author(locals.owner)
-        #content.col-xs-12.col-sm-9.col-xs-offset-0.col-sm-offset-3
+        #content
           block content
-            h2 Welcome to zombocom!
-          block pager
-      footer
-        block footer
-          p.text-center.text-muted
+        footer
+          block footer
             != contents['footer.md'].html
     script(src='/js/main.js')

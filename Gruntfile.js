@@ -14,13 +14,14 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', ['preview']);
   grunt.registerTask('build', ['clean', 'wintersmith', 'less', 'livescript', 'copy', 'concat']);
-  grunt.registerTask('preview', ['build', 'express', 'watch']);
-  grunt.registerTask('deploy', ['build', 'cssmin', 'uglify']); // , 'gh-pages']);
+  grunt.registerTask('server', ['express']);
+  grunt.registerTask('preview', ['build', 'server', 'watch']);
+  grunt.registerTask('minify', ['cssmin', 'uglify']);
+  grunt.registerTask('deploy', ['build', 'minify]']); // , 'gh-pages']);
 
-  var jsFiles = [
+  var jsVendors = [
     'bower_components/jquery/jquery.js',
-    'bower_components/bootstrap/dist/js/bootstrap.js',
-    'contents/js/main.js'
+    'bower_components/bootstrap/dist/js/bootstrap.js'
   ],
       defaultBanner = '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
       lessFiles = [
@@ -59,7 +60,7 @@ module.exports = function (grunt) {
       },
       build: {
         files: {
-          'build/js/main.js': jsFiles,
+          'build/js/main.js': [jsVendors, ['contents/js/main.js']],
           'build/js/html5shiv.js': 'bower_components/html5shiv/dist/html5shiv.js'
         }
       }
@@ -78,7 +79,7 @@ module.exports = function (grunt) {
 
     livescript: {
       build: {
-        src: 'contents/js/*.ls',
+        src: 'contents/js/**/*.ls',
         dest: 'contents/js/main.js'
       }
     },
@@ -102,7 +103,7 @@ module.exports = function (grunt) {
           'templates/**/*.jade',
           'contents/img/**',
           'contents/js/*.ls',
-          jsFiles
+          jsVendors
         ],
         tasks: ['build']
       }

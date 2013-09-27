@@ -14,33 +14,90 @@ body {
 }
 
 
-.fix-side {
-  position: fixed;
-}
-.rel-side {
-  position: relative;
-}
+@red: #E82092;
+@green: #46593F;
 
 #sidebar {
-  .fix-side;
-  left: 0;
-  .text-center;
+  /* format sidebar */
+  .make-xs-column(12);
+  .make-sm-column(3);
 
+  position: fixed;
+  .text-center;
+  left: 0;
+  height: 100%;
+  padding-right: 20px;
+  
   @media (max-width: @screen-xs-max) {
-    .rel-side;
+    .col-xs-12;
+    position: relative;
+    h1 {
+      font-size: 2.4em;
+    }
+    h2 {
+      font-size: 1.8em;
+    }
   }
   @media (min-width: @screen-xs-max) and (max-width: @screen-sm-max) {
+    h1 {
+      font-size: 2.4em;
+    }
+    h2 {
+      font-size: 1.8em;
+    }
   }
   @media (min-width: @screen-sm-max) and (max-width: @screen-md-max) {
+    h1 {
+      font-size: 2.8em;
+    }
+    h2 {
+      font-size: 2.2em;
+    }
   }
   @media (min-width: @screen-md-max) {
+    h1 {
+      font-size: 3.2em;
+    }
+    h2 {
+      font-size: 2.6em;
+    }
+  }
+  
+  /* color sidebar */
+  background-color: @green;
+
+  h2 {
+    .lead;
+    color: @red;
+  }
+
+  a {
+
+    /*
+    @color0: #648F64;
+    @color1: #1D32D1;
+    @color2: #EF69FF;
+
+    :link {
+      color: @color1;
+    }
+    :visited {
+      color: @color1;
+    }
+    :hover {
+      color: @color2;
+    }
+    :active {
+      color: @color1;
+    }
+  */
   }
 }
 
-
-footer > p {
-  .text-center;
-  .text-muted;
+#content {
+  .make-xs-column(12);
+  .make-sm-column-offset(3);
+  .make-sm-column(9);
 }
 
 .pager .previous span {
@@ -76,6 +133,16 @@ article header .date {
   padding-right: 0px;
 
   span {
+
     font-size: 32px;
+  }
+}
+
+footer {
+  width: 100%;
+
+  p {
+    .text-center;
+    .text-muted;
   }
 }
