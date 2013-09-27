@@ -1,8 +1,8 @@
 @import "bootstrap.less";
-
 @import "font-awesome.less";
-
 @FontAwesomePath: "../fonts";
+
+@import "mysprites.less";
 
 html {
   height: 100%;
@@ -14,11 +14,18 @@ body {
 }
 
 
-@red: #E82092;
-@green: #46593F;
+@blood: #E82092;
+@tree: #46593F;
+@dirt: #63532C;
 
-#sidebar {
-  /* format sidebar */
+@footerHeight: 20px;
+
+.githubSprite {
+  .sprite(@github-80x15);
+}
+
+.header {
+  /* format header */
   .make-xs-column(12);
   .make-sm-column(3);
 
@@ -26,6 +33,7 @@ body {
   .text-center;
   left: 0;
   height: 100%;
+  bottom: @footerHeight;
   padding-right: 20px;
   
   @media (max-width: @screen-xs-max) {
@@ -64,11 +72,11 @@ body {
   }
   
   /* color sidebar */
-  background-color: @green;
+  background-color: @tree;
 
   h2 {
     .lead;
-    color: @red;
+    color: @blood;
   }
 
   a {
@@ -94,10 +102,34 @@ body {
   }
 }
 
-#content {
+.content {
+  /* format content */
   .make-xs-column(12);
   .make-sm-column-offset(3);
   .make-sm-column(9);
+  bottom: @footerHeight;
+  @media (max-width: @screen-xs-max) {
+    top: 0px;
+  }
+  @media (min-width: @screen-xs-max) {
+    top: 20px;
+  }
+}
+
+.footer {
+  /* format footer */
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  height: @footerHeight;
+
+  /* style footer */
+  background-color: @dirt;
+  p {
+    .text-center;
+    .text-muted;
+    
+  }
 }
 
 .pager .previous span {
@@ -133,16 +165,7 @@ article header .date {
   padding-right: 0px;
 
   span {
-
     font-size: 32px;
   }
 }
 
-footer {
-  width: 100%;
-
-  p {
-    .text-center;
-    .text-muted;
-  }
-}

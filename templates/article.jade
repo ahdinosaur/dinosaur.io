@@ -16,5 +16,5 @@ block header
 block content
   include pager
   article.article
-    section.content!= typogr(page.html).typogrify()
+    section.container!= typogr(page.html).typogrify()
   +pager(page)

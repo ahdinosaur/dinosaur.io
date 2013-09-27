@@ -5,15 +5,16 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-livescript');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-express');
   grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-wintersmith');
+  grunt.loadNpmTasks('grunt-livescript');
+  grunt.loadNpmTasks('grunt-spritesmith');
 
   grunt.registerTask('default', ['preview']);
-  grunt.registerTask('build', ['clean', 'wintersmith', 'less', 'livescript', 'copy', 'concat']);
+  grunt.registerTask('build', ['clean', 'wintersmith', 'sprite', 'less', 'livescript', 'copy', 'concat']);
   grunt.registerTask('server', ['express']);
   grunt.registerTask('preview', ['build', 'server', 'watch']);
   grunt.registerTask('minify', ['cssmin', 'uglify']);
@@ -24,7 +25,7 @@ module.exports = function (grunt) {
     'bower_components/bootstrap/dist/js/bootstrap.js'
   ],
       defaultBanner = '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-      lessFiles = [
+      lessPaths = [
     'bower_components/bootstrap/less/',
     'bower_components/font-awesome/less/',
     'contents/css/'
@@ -44,6 +45,14 @@ module.exports = function (grunt) {
       build: {}
     },
 
+    sprite: {
+      build: {
+        src: 'contents/img/sprites/*.png',
+        destImg: 'contents/img/spritesheet.png',
+        destCSS: 'contents/css/mysprites.less'
+      }
+    },
+
     copy: {
       build: {
         src: fontFiles,
@@ -54,6 +63,26 @@ module.exports = function (grunt) {
       }
     },
 
+    less: {
+      options: {
+        paths: lessPaths,
+        compress: false
+      },
+      build: {
+        src: 'contents/css/main.less',
+        dest: 'contents/css/main.css'
+      }
+    },
+
+    livescript: {
+      build: {
+        src: 'contents/js/**/*.ls',
+        dest: 'contents/js/main.js'
+      }
+    },
+
+
+
     concat: {
       options: {
         banner: defaultBanner
@@ -63,24 +92,6 @@ module.exports = function (grunt) {
           'build/js/main.js': [jsVendors, ['contents/js/main.js']],
           'build/js/html5shiv.js': 'bower_components/html5shiv/dist/html5shiv.js'
         }
-      }
-    },
-
-    less: {
-      options: {
-        paths: lessFiles,
-        compress: false
-      },
-      build: {
-        src: 'contents/css/main.less',
-        dest: 'build/css/main.css'
-      }
-    },
-
-    livescript: {
-      build: {
-        src: 'contents/js/**/*.ls',
-        dest: 'contents/js/main.js'
       }
     },
 

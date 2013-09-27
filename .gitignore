@@ -7,3 +7,6 @@ bower_components
 
 /contents/js/*.js
 /contents/css/*.css
+
+/contents/css/mysprites.less
+/contents/img/spritesheet.png

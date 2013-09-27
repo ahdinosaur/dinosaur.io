@@ -17,18 +17,15 @@ html(lang='en')
       //if lt IE 9
         script(src="/js/html5shiv.js")
   body(class=bodyclass)
-    div.container
-      div.row
-        #sidebar(role='navigation')
-          header
-            block header
-              h1
-                a(href=locals.url)= locals.name
-              include author
-              mixin author(locals.owner)
-        #content
-          block content
-        footer
-          block footer
-            != contents['footer.md'].html
+    header.header(role='navigation')
+      block header
+        h1
+          a(href=locals.url)= locals.name
+        include author
+        mixin author(locals.owner)
+    .content
+      block content
+    footer.footer
+      block footer
+        != contents['footer.md'].html
     script(src='/js/main.js')
