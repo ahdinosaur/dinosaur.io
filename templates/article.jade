@@ -8,7 +8,8 @@ block prepend title
   | #{ page.title + " - "}
 
 block header
-  h1= page.title
+  h1
+    a(href=page.url)= page.title
   include author
   mixin author(page.metadata.author)
 
@@ -18,6 +19,18 @@ block content
 
 block pager
   ul.pager
-    li
-      a(href=contents.index.url) &larr; index
+    if page.prevPage
+      li.previous: a(href=page.prevPage.url)!= '<span></span> previous'
+    else
+      li.previous.disabled: a(href='#')!= '<span></span> previous'
+    
+    li.index
+      a(href=contents.index.url)!= 'index <span></span>'
+    li.archives
+      a(href='/archive.html')!= 'archives <span></span>'
+
+    if page.nextPage
+      li.next: a(href=page.nextPage.url)!= 'next <span></span>'
+    else
+      li.next.disabled: a(href='#')!= 'next <span></span>'
 

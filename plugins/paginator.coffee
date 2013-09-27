@@ -20,6 +20,12 @@ module.exports = (env, callback) ->
     # note that each article is assumed to have its own directory in the articles directory
     articles = contents[options.articles]._.directories.map (item) -> item.index
     articles.sort (a, b) -> b.date - a.date
+
+    # add references to prev/next to each article
+    for article, i in articles
+      article.prevPage = articles[i - 1]
+      article.nextPage = articles[i + 1]
+
     return articles
 
   class PaginatorPage extends env.plugins.Page

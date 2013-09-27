@@ -1,7 +1,7 @@
 ---
 title: new blog
 date: 2013-09-07 16:15:51
-author: ahdinosaur
+author: dinosaur
 tags: muse
 template: article.jade
 ---

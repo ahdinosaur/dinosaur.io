@@ -2,6 +2,7 @@
 title: abstractions are stacked
 author: dinosaur
 date: 2013-09-26 02:25:22
+template: article.jade
 ---
 
 what is an abstraction? what are stacks?

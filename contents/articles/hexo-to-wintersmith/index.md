@@ -1,7 +1,7 @@
 ---
 title: static sites
 date: 2013-09-24 21:28
-author: ahdinosaur
+author: dinosaur
 tags: stack
 template: article.jade
 ---

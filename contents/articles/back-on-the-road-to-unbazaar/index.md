@@ -1,7 +1,7 @@
 ---
 title: back on the road to unbazaar
 date: 2013-09-18 03:23:46
-author: ahdinosaur
+author: dinosaur
 tags: muse, unbazaar
 template: article.jade
 ---

@@ -4,7 +4,11 @@ mixin author(authorName)
   - var author = contents.authors[authorName + '.json']
   if author
     p.author.lead
-      | #{ "@" + authorName }
+      if author.metadata.url
+        a(href=author.metadata.url)
+          | #{ "@" + authorName }
+      else
+        | #{ "@" + authorName }
     if author.metadata.email
       mixin gravatar(author.metadata.email)
     .handles

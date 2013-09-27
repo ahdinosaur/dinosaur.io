@@ -1,7 +1,7 @@
 ---
 title: Big to Meteor
 date: 2013-09-18 13:59:31
-author: ahdinosaur
+author: dinosaur
 tags: [big, meteor, stack]
 template: article.jade
 ---

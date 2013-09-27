@@ -22,6 +22,12 @@ block pager
       li.previous: a(href=prevPage.url)!= '<span></span> previous'
     else
       li.previous.disabled: a(href='#')!= '<span></span> previous'
+    
+    li.index
+      a(href=contents.index.url)!= 'index <span></span>'
+    li.archives
+      a(href='/archive.html')!= 'archives <span></span>'
+
     if nextPage
       li.next: a(href=nextPage.url)!= 'next <span></span>'
     else
