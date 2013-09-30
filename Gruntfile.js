@@ -12,13 +12,14 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-wintersmith');
   grunt.loadNpmTasks('grunt-livescript');
   grunt.loadNpmTasks('grunt-spritesmith');
+  grunt.loadNpmTasks('grunt-hashres');
 
   grunt.registerTask('default', ['preview']);
   grunt.registerTask('build', ['clean', 'wintersmith', 'sprite', 'less', 'livescript', 'copy', 'concat']);
   grunt.registerTask('server', ['express']);
   grunt.registerTask('preview', ['build', 'server', 'watch']);
   grunt.registerTask('minify', ['cssmin', 'uglify']);
-  grunt.registerTask('deploy', ['build', 'minify]']); // , 'gh-pages']);
+  grunt.registerTask('deploy', ['build', 'minify', 'hashres', 'gh-pages']);
 
   var jsVendors = [
     'bower_components/jquery/jquery.js',
@@ -136,12 +137,27 @@ module.exports = function (grunt) {
       'build/js/main.js': 'build/js/main.js'
     },
 
+    hashres: {
+      options: {},
+      deploy: {
+        src: [
+          'build/js/main.js',
+          'build/css/main.css'
+        ],
+        dest: 'build/index.html'
+      }
+    },
+
     'gh-pages': {
-      options: {
-        base: 'build'
-      },
-      src: '**/*',
-      message: defaultBanner
+      deploy: {
+        options: {
+          base: 'build',
+          repo: 'https://github.com/ahdinosaur/ahdinosaur.github.io.git',
+          branch: 'master',
+          message: defaultBanner
+        },
+        src: ['**/*']
+      }
     }
 
   });
