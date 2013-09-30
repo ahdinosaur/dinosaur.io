@@ -12,7 +12,7 @@
     "font-awesome": "~3.2.1"
   },
   "homepage": "https://github.com/ahdinosaur/dinosaur.io",
-  "license": "MIT",
+  "license": "CC-BY-SA",
   "devDependencies": {
     "html5shiv": "~3.7.0",
     "jquery": "~2.0.3",

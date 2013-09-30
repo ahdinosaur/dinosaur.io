@@ -3,7 +3,7 @@
     "url": "http://localhost:8088",
     "name": "free and open source love",
     "owner": "dinosaur",
-    "description": "TODO: description",
+    "description": "i'm on a mission to use open source to demystify the magic of technology and put the people back in control.",
     "email": "dinosaur@riseup.net"
   },
   "plugins": [

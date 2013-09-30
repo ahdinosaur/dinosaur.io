@@ -17,15 +17,30 @@ html(lang='en')
       //if lt IE 9
         script(src="/js/html5shiv.js")
   body(class=bodyclass)
-    header.header(role='navigation')
-      block header
-        h1
-          a(href=locals.url)= locals.name
-        include author
-        mixin author(locals.owner)
-    .content.container
-      block content
+    .row
+      header.header(role='navigation')
+        block header
+          h1
+            a(href=locals.url)= locals.name
+          include author
+          mixin author(locals.owner)
+      .content.container
+        block content
     footer.footer
       block footer
-        != contents['footer.md'].html
+        ul.nav.nav-pills
+          li
+            a(href="https://github.com/ahdinosaur/dinosaur.io").githubSprite
+          li
+            a(href="http://creativecommons.org/licenses/by-sa/3.0/", rel="license").cc-by-saSprite
+          li
+            a(href="http://debian.org").debianSprite
+          li
+            a(href="http://opensource.org/osd").opensourceSprite
+          li
+            a(href="http://validator.w3.org/check?uri=" + locals.url).html5Sprite
+          li
+            a(href="http://jigsaw.w3.org/css-validator/validator?uri=" + locals.url + "&amp;profile=css3").css3Sprite
+          li
+            a(href="http://ipv6-test.com/validate.php?url=" + locals.url).ipv6Sprite
     script(src='/js/main.js')

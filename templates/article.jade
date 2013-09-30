@@ -9,12 +9,18 @@ block prepend title
 
 block header
   h1
-    a(href=page.url)= page.title
+    a(href=locals.url)= locals.name
   include author
   mixin author(page.metadata.author)
 
 block content
   include pager
   article.article
+    header.page-header
+      p.date.pull-right
+        = moment.utc(page.date).format('DD. MMMM YYYY ')
+        span.icon-calendar
+      h2
+        a(href=page.url)= page.title
     section!= typogr(page.html).typogrify()
   +pager(page)

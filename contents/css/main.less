@@ -3,25 +3,45 @@
 @FontAwesomePath: "../fonts";
 
 @import "mysprites.less";
+@import "bootswatch.less";
+@import "myvariables.less";
 
-html {
-  height: 100%;
-}
+@blood: darken(@brand-info, 10%);
+@tree: lighten(@brand-success, 25%);
+@dirt: lighten(@brand-warning, 20%);
 
-body {
-  font-family: "Open Sans", "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
-  height: 100%;
-}
+/*@blood: #FF2435;
+@tree: #2D4723;
+@dirt: #464734;*/
 
-
-@blood: #E82092;
-@tree: #46593F;
-@dirt: #464734;
-
-@footerHeight: 20px;
+@footerHeight: 15px;
 
 .githubSprite {
   .sprite(@github-80x15);
+}
+
+.css3Sprite {
+  .sprite(@css3-80x15);
+}
+
+.ipv6Sprite {
+  .sprite(@ipv6-80x15);
+}
+
+.debianSprite {
+  .sprite(@debian-80x15);
+}
+
+.cc-by-saSprite {
+  .sprite(@cc-by-sa-80x15);
+}
+
+.opensourceSprite {
+  .sprite(@opensource-80x15);
+}
+
+.html5Sprite {
+  .sprite(@html5-80x15);
 }
 
 .header {
@@ -33,7 +53,6 @@ body {
   .text-center;
   left: 0;
   height: 100%;
-  bottom: @footerHeight;
   padding-right: 20px;
   
   @media (max-width: @screen-xs-max) {
@@ -75,31 +94,21 @@ body {
   background-color: @tree;
 
   h2 {
-    .lead;
     color: @blood;
+    a {
+      color: @blood;
+    }
   }
 
-  a {
-
-    /*
-    @color0: #648F64;
-    @color1: #1D32D1;
-    @color2: #EF69FF;
-
-    :link {
-      color: @color1;
-    }
-    :visited {
-      color: @color1;
-    }
+  ul li {
     :hover {
-      color: @color2;
+      color: @blood;
     }
-    :active {
-      color: @color1;
-    }
-  */
   }
+}
+
+a:hover {
+  color: @blood;
 }
 
 .content {
@@ -108,27 +117,25 @@ body {
   .make-sm-column-offset(3);
   .make-sm-column(9);
   bottom: @footerHeight;
-  @media (max-width: @screen-xs-max) {
-    top: 0px;
-  }
-  @media (min-width: @screen-xs-max) {
-    top: 20px;
-  }
 }
 
 .footer {
-  /* format footer */
   bottom: 0;
   width: 100%;
   position: fixed;
-  height: @footerHeight;
+  height: (@footerHeight + 6px);
 
-  /* style footer */
-  background-color: @dirt;
-  p {
+  ul {
+    float: none;
     .text-center;
-    .text-muted;
-    
+  }
+  ul > li {
+    float: none;
+    display: inline;
+  }
+  ul > li > a {
+    display: inline-block;
+    padding: 0;
   }
 }
 
@@ -158,7 +165,7 @@ article header .date {
   line-height: 4em;
 }
 
-.handles ul li {
+.handles > .nav > li {
   margin-left: 0px;
   margin-right: 0px;
   padding-left: 0px;
@@ -169,3 +176,6 @@ article header .date {
   }
 }
 
+.icon-calendar {
+  color: @blood;
+}

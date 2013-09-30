@@ -7,7 +7,9 @@ mixin author(authorName)
       h2
         if author.metadata.url
           a(href=author.metadata.url)
-            | #{ "@" + authorName }
+            | #{ "♥" + authorName }
+        else
+          | #{ "♥" + authorName }
     if author.metadata.email
         mixin gravatar(author.metadata.email)
       .handles

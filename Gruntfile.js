@@ -70,14 +70,14 @@ module.exports = function (grunt) {
       },
       build: {
         src: 'contents/css/main.less',
-        dest: 'contents/css/main.css'
+        dest: 'build/css/main.css'
       }
     },
 
     livescript: {
       build: {
         src: 'contents/js/**/*.ls',
-        dest: 'contents/js/main.js'
+        dest: 'build/js/main.js'
       }
     },
 
@@ -89,7 +89,7 @@ module.exports = function (grunt) {
       },
       build: {
         files: {
-          'build/js/main.js': [jsVendors, ['contents/js/main.js']],
+          'build/js/main.js': [jsVendors, ['build/js/main.js']],
           'build/js/html5shiv.js': 'bower_components/html5shiv/dist/html5shiv.js'
         }
       }
