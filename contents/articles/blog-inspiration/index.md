@@ -1,15 +1,17 @@
 ---
-title: new blog
+title: blog inspiration
 date: 2013-09-07 16:15:51
 author: dinosaur
 tags: muse
 template: article.jade
 ---
-welcome to my new blog.
+welcome to my blog.
 
-before i begin, what do i want to do with blogging?
+what do i want to do with blogging?
 
 <span class="more"></span>
+
+## why do i blog?
 
 - document ideas on the internet rather than scraps of paper
 - journal life feelings and experiences

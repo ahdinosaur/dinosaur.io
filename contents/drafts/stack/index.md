@@ -1,5 +1,5 @@
 ---
-title: abstractions are stacked
+title: stack
 author: dinosaur
 date: 2013-09-26 02:25:22
 template: article.jade
